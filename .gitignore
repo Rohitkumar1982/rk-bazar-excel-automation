@@ -1,0 +1,7 @@
+venv/
+venv_old_broken/
+.git_old_broken/
+__pycache__/
+*.log
+.DS_Store
+.vscode_test

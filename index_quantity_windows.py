@@ -5,10 +5,10 @@ from logging_util import logger
 
 def read_and_search_csv(read_csv_file, write_csv_file,live_csv_file):
     # creating key value pair for BR_CODE and title (for matching purpose)
-    br_code = {'RKSK' : '|| S2', 'RKTE' : '|| S1', 'RKDS' : '|| S3', 'RKP':'|| S4', 'RKTM':'|| S5', 'RKKA':'|| S6', 'RKRP':'|| S7', 'RKN':'|| S8', 'RKA':'|| S9', 'RKW':'|| S10', 'RKPM':'|| S11' }
+    br_code = {'RKSK' : '|| S2', 'RKTE' : '|| S1', 'RKDS' : '|| S3', 'RKPO':'|| S4', 'RKTM':'|| S5', 'RKKA':'|| S6', 'RKSN':'|| S7', 'RKN':'|| S8', 'RKA':'|| S9', 'RKW':'|| S10', 'RKPM':'|| S11' }
 
     # creating key value pair for BR_CODE and Location (for matching purpose)
-    br_code_location = {"RKTE" : "1 RKTE", "RKSK" : "2 RKSK", "RKDS" : "3 RKDS","RKP":"4 RKP","RKTM": "5 RKTM","RKKA": "6 RKKA","RKRP": "7 RKRP","RKN": "8 RKN","RKA": "9 RKA","RKW": "10 RKW","RKPM": "11 RKPM"}
+    br_code_location = {"RKTE" : "1 RKTE", "RKSK" : "2 RKSK", "RKDS" : "3 RKDS","RKPO":"4 RKPO","RKTM": "5 RKTM","RKKA": "6 RKKA","RKSN": "7 RKSN","RKN": "8 RKN","RKA": "9 RKA","RKW": "10 RKW","RKPM": "11 RKPM"}
 
     sku_code = []    #storing all Variant SKU of write_csv_file
 
@@ -94,7 +94,7 @@ def read_and_search_csv(read_csv_file, write_csv_file,live_csv_file):
 
                 #checking which BR_CODE is not present in read file
                 # After that storing all values in a new list for further process
-                br_code_for_delete = ['RKDS', 'RKTE', 'RKSK','RKP','RKTM','RKKA','RKRP','RKN','RKA','RKW','RKPM']
+                br_code_for_delete = ['RKDS', 'RKTE', 'RKSK','RKPO','RKTM','RKKA','RKSN','RKN','RKA','RKW','RKPM']
                 p_code_new = ''
                 for store in store_all_details:
                     p_code_new = store['P_CODE']
@@ -135,7 +135,7 @@ def write_and_save_csv(write_file_df):
 
 
 def save_file_after_editing(final_all_value_edited):
-    head1 = ["Handle", "Title", "Option1 Name", "Option1 Value", "Option2 Name", "Option2 Value", "Option3 Name", "Option3 Value", "SKU", "HS Code", "COO", "Location", "Incoming", "Unavailable", "Committed", "Available", "On hand"]
+    head1 = ["Handle", "Title", "Option1 Name", "Option1 Value", "Option2 Name", "Option2 Value", "Option3 Name", "Option3 Value", "SKU", "HS Code", "COO", "Location", "Bin name", "Incoming (not editable)", "Unavailable (not editable)", "Committed (not editable)", "Available (not editable)", "On hand (current)", "On hand (new)"]
     with open('save_inventory_file.csv', 'w', newline='', encoding='UTF-8') as file:
         writer = csv.writer(file)
         writer.writerow(head1)

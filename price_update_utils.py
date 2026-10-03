@@ -4,8 +4,8 @@ from logging_util import logger
 
 # Mapping BR_CODE to descriptive titles, key value pair for BR_CODE and title (for matching purpose)
 BR_CODE = {
-    'RKSK': '|| S2', 'RKTE': '|| S1', 'RKDS': '|| S3', 'RKP': '|| S4', 
-    'RKTM': '|| S5', 'RKKA': '|| S6', 'RKRP': '|| S7', 'RKN': '|| S8', 
+    'RKSK': '|| S2', 'RKTE': '|| S1', 'RKDS': '|| S3', 'RKPO': '|| S4', 
+    'RKTM': '|| S5', 'RKKA': '|| S6', 'RKSN': '|| S7', 'RKN': '|| S8', 
     'RKA': '|| S9', 'RKW': '|| S10', 'RKPM': '|| S11'
 }
 BRICK = "-----------------------------------------------------------------------------\n"
@@ -137,7 +137,7 @@ def verify_sku_codes(read_csv, write_csv, live_csv):
 def read_and_search_csv(read_csv_file, write_csv_file,live_csv_file):
     verify_sku_codes(read_csv_file, write_csv_file, live_csv_file)
     # creating key value pair for BR_CODE and title (for matching purpose)
-    br_code = {'RKBK' : '|| S2', 'RKTE' : '|| S1', 'RKDS' : '|| S3', 'RKP':'|| S4', 'RKTM':'|| S5', 'RKKA':'|| S6', 'RKRP':'|| S7', 'RKN':'|| S8', 'RKA':'|| S9', 'RKW':'|| S10', 'RKPM':'|| S11'}
+    br_code = {'RKBK' : '|| S2', 'RKTE' : '|| S1', 'RKDS' : '|| S3', 'RKPO':'|| S4', 'RKTM':'|| S5', 'RKKA':'|| S6', 'RKSN':'|| S7', 'RKN':'|| S8', 'RKA':'|| S9', 'RKW':'|| S10', 'RKPM':'|| S11'}
 
     sku_code = []    #storing all Variant SKU of write_csv_file
 

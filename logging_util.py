@@ -1,21 +1,14 @@
 import logging
 import time
 
-logger = logging.getLogger("reading-writing-searching-automation-logger")
+# Log file name matches the previous pattern: reading_writing_searching<timestamp>.log
+log_file = "reading_writing_searching" + str(time.time()) + ".log"
+
+logger = logging.getLogger("excel_automation")
 logger.setLevel(logging.INFO)
 
-# log line formatter
-formatter = logging.Formatter('%(asctime)s: [%(levelname)s]: %(message)s')
-
-# handler for log file
-file_handler = logging.FileHandler('reading_writing_searching'+str(time.time())+'.log')
-file_handler.setLevel(logging.INFO)
-file_handler.setFormatter(formatter)
-
-# handler for stdout
-stdout_handler = logging.StreamHandler()
-stdout_handler.setLevel(logging.INFO)
-stdout_handler.setFormatter(formatter)
-
-logger.addHandler(file_handler)
-logger.addHandler(stdout_handler)
+if not logger.handlers:
+    formatter = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
+    file_handler = logging.FileHandler(log_file, encoding="UTF-8")
+    file_handler.setFormatter(formatter)
+    logger.addHandler(file_handler)
