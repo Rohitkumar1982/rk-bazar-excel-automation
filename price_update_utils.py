@@ -79,15 +79,7 @@ def verify_sku_codes(read_csv, write_csv, live_csv):
                             logger.info(find_index_detail)
                             write_data[w_index][22] = net_rate
                             write_data[w_index][23] = mrp
-                            write_data[w_index].insert(17, '')
-                            write_data[w_index].insert(35, '')
-                            write_data[w_index].insert(36, '')
-                            del write_data[w_index][-3]
-                            del write_data[w_index][-4]
-                            # del write_data[w_index][10]
-                            # del write_data[w_index][13]
-                            # del write_data[w_index][16]
-                            final_all_value_edited.append(write_data[w_index])
+                            final_all_value_edited.append(list(write_data[w_index]))
                             value_you_editied = write_and_save_csv(w_index,mrp,net_rate)
                             # final_all_value_edited.append({p_code : br_vale})
                             if value_you_editied not in seriel_num_edited:
@@ -98,15 +90,7 @@ def verify_sku_codes(read_csv, write_csv, live_csv):
                             logger.info(find_index_detail)
                             write_data[w_index][22] = net_rate
                             write_data[w_index][23] = mrp
-                            write_data[w_index].insert(17, '')
-                            write_data[w_index].insert(35, '')
-                            write_data[w_index].insert(36, '')
-                            del write_data[w_index][-3]
-                            del write_data[w_index][-4]
-                            # del write_data[w_index][10]
-                            # del write_data[w_index][13]
-                            # del write_data[w_index][16]
-                            final_all_value_edited.append(write_data[w_index])
+                            final_all_value_edited.append(list(write_data[w_index]))
                             value_you_editied = write_and_save_csv(w_index,mrp,net_rate)
                             # final_all_value_edited.append({p_code : br_vale})
                             if value_you_editied not in seriel_num_edited:
@@ -214,15 +198,7 @@ def read_and_search_csv(read_csv_file, write_csv_file,live_csv_file):
                                         logger.info(find_index_detail)
                                         write_file_df[index_of_sku_code][22] = net_sale_rate
                                         write_file_df[index_of_sku_code][23] = mrp
-                                        write_file_df[index_of_sku_code].insert(17, '')
-                                        write_file_df[index_of_sku_code].insert(35, '')
-                                        write_file_df[index_of_sku_code].insert(36, '')
-                                        del write_file_df[index_of_sku_code][-3]
-                                        del write_file_df[index_of_sku_code][-4]
-                                        # del write_file_df[index_of_sku_code][10]
-                                        # del write_file_df[index_of_sku_code][13]
-                                        # del write_file_df[index_of_sku_code][16]
-                                        final_all_value_edited.append(write_file_df[index_of_sku_code])
+                                        final_all_value_edited.append(list(write_file_df[index_of_sku_code]))
                                         value_you_editied = write_and_save_csv(index_of_sku_code,mrp,net_sale_rate)
                                         # final_all_value_edited.append({p_code : br_vale})
                                         if value_you_editied not in seriel_num_edited:
@@ -233,15 +209,7 @@ def read_and_search_csv(read_csv_file, write_csv_file,live_csv_file):
                                         logger.info(find_index_detail)
                                         write_file_df[index_of_sku_code][22] = net_sale_rate
                                         write_file_df[index_of_sku_code][23] = mrp
-                                        write_file_df[index_of_sku_code].insert(17, '')
-                                        write_file_df[index_of_sku_code].insert(35, '')
-                                        write_file_df[index_of_sku_code].insert(36, '')
-                                        del write_file_df[index_of_sku_code][-3]
-                                        del write_file_df[index_of_sku_code][-4]
-                                        # del write_file_df[index_of_sku_code][10]
-                                        # del write_file_df[index_of_sku_code][13]
-                                        # del write_file_df[index_of_sku_code][16]
-                                        final_all_value_edited.append(write_file_df[index_of_sku_code])
+                                        final_all_value_edited.append(list(write_file_df[index_of_sku_code]))
                                         value_you_editied = write_and_save_csv(index_of_sku_code,mrp,net_sale_rate)
                                         # final_all_value_edited.append({p_code : br_vale})
                                         if value_you_editied not in seriel_num_edited:
@@ -313,9 +281,9 @@ def write_and_save_csv(final_index,mrp,net_sale_rate):
 
 
 def save_file_after_editing(final_all_value_edited):
-    # head1 = ["Handle", "Title", "Body (HTML)",	"Vendor" ,"Product Category", "Type", "Tags", "Published", "Option1 Name", "Option1 Value", "Option2 Name", "Option2 Value", "Option3 Name", "Option3 Value", "Variant SKU", "Variant Grams", "Variant Inventory Tracker", "Variant Inventory Qty", "Variant Inventory Policy", "Variant Fulfillment Service", "Variant Price", "Variant Compare At Price", "Variant Requires Shipping", "Variant Taxable", "Variant Barcode", "Image Src", "Image Position", "Image Alt Text", "Gift Card", "SEO Title", "SEO Description", "Google Shopping / Google Product Category", "Google Shopping / Gender", "Google Shopping / Age Group", "Google Shopping / MPN", "Google Shopping / AdWords Grouping", "Google Shopping / AdWords Labels", "Google Shopping / Condition", "Google Shopping / Custom Product", "Google Shopping / Custom Label 0", "Google Shopping / Custom Label 1", "Google Shopping / Custom Label 2", "Google Shopping / Custom Label 3", "Google Shopping / Custom Label 4", "Variant Image", "Variant Weight Unit", "Variant Tax Code", "Cost per item", "Price / International", "Compare At Price / International", "Status"]
-    head1 = ["Handle", "Title", "Body (HTML)",	"Vendor" ,"Product Category", "Type", "Tags", "Published", "Option1 Name", "Option1 Value", "Option1 Linked To", "Option2 Name", "Option2 Value", "Option2 Linked To", "Option3 Name", "Option3 Value", "Option3 Linked To", "Variant SKU", "Variant Grams", "Variant Inventory Tracker", "Variant Inventory Policy", "Variant Fulfillment Service", "Variant Price", "Variant Compare At Price", "Variant Requires Shipping", "Variant Taxable", "Variant Barcode", "Image Src", "Image Position", "Image Alt Text", "Gift Card", "SEO Title", "SEO Description", "Google Shopping / Google Product Category", "Google Shopping / Gender", "Google Shopping / Age Group", "Google Shopping / MPN", "Google Shopping / Condition", "Google Shopping / Custom Product", "Google Shopping / Custom Label 0", "Google Shopping / Custom Label 1", "Google Shopping / Custom Label 2", "Google Shopping / Custom Label 3", "Google Shopping / Custom Label 4", "Age group (product.metafields.shopify.age-group)", "Allergen information (product.metafields.shopify.allergen-information)", "Baking purpose (product.metafields.shopify.baking-purpose)", "Cleaning surfaces (product.metafields.shopify.cleaning-surfaces)", "Color (product.metafields.shopify.color-pattern)", "Constitutive ingredients (product.metafields.shopify.constitutive-ingredients)", "Cookware/Bakeware material (product.metafields.shopify.cookware-bakeware-material)", "Cosmetic function (product.metafields.shopify.cosmetic-function)", "Country (product.metafields.shopify.country)", "Dietary preferences (product.metafields.shopify.dietary-preferences)", "Dietary supplements (product.metafields.shopify.dietary-supplements)", "Dinnerware pieces included (product.metafields.shopify.dinnerware-pieces-included)", "Dispenser type (product.metafields.shopify.dispenser-type)", "Drinkware material (product.metafields.shopify.drinkware-material)", "Dry bean variety (product.metafields.shopify.dry-bean-variety)", "Fat content (product.metafields.shopify.fat-content)", "Flavor (product.metafields.shopify.flavor)", "Flour/Grain type (product.metafields.shopify.flour-grain-type)", "Food product form (product.metafields.shopify.food-product-form)", "Fragrance level (product.metafields.shopify.fragrance-level)", "Fruit source (product.metafields.shopify.fruit-source)", "Material (product.metafields.shopify.material)", "Moisturizer type (product.metafields.shopify.moisturizer-type)", "Nut/Seed type (product.metafields.shopify.nut-seed-type)", "Occasion (product.metafields.shopify.occasion)", "Package type (product.metafields.shopify.package-type)", "Pasta type (product.metafields.shopify.pasta-type)", "Product certifications & standards (product.metafields.shopify.product-certifications-standards)", "Product form (product.metafields.shopify.product-form)", "Recommended use (product.metafields.shopify.recommended-use)", "Season (product.metafields.shopify.season)", "Shape (product.metafields.shopify.shape)", "Shoe size (product.metafields.shopify.shoe-size)", "Suitable for skin type (product.metafields.shopify.suitable-for-skin-type)", "Tableware material (product.metafields.shopify.tableware-material)", "Target gender (product.metafields.shopify.target-gender)", "Toothpaste type (product.metafields.shopify.toothpaste-type)", "Tote handle type (product.metafields.shopify.tote-handle-type)", "Variant Image", "Variant Weight Unit", "Variant Tax Code", "Cost per item", "Included / India", "Price / India", "Compare At Price / India", "Status"]
-    
+    # header is taken from write.csv itself, so the output always matches the Shopify template
+    head1 = pd.read_csv(write_csv_file, nrows=0).columns.tolist()
+
     with open('save_final_file.csv', 'w', newline='',encoding='UTF-8') as file:
         writer = csv.writer(file)
         writer.writerow(head1)
